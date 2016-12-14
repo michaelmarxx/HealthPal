@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HealthPal.master.cs" Inherits="HealthPal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Health Pal</title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="headPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server" id="masterHealthForm">
+    <header> 
+        
+        <asp:HyperLink ID="linkHome" runat="server" CssClass="link" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+        <asp:HyperLink ID="linkAssessment" runat="server" CssClass="link" NavigateUrl="~/Assessment/Register.aspx">Assessment</asp:HyperLink>
+        <asp:HyperLink ID="linkDocPortal" runat="server" CssClass="link" NavigateUrl="~/DocPortal/DocPortal.aspx">Doc Portal</asp:HyperLink>
+    </header>
+        <asp:ContentPlaceHolder id="webFormPlaceHolder" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    <footer>
+        <asp:UpdatePanel ID="upClockRunner" runat="server">
+            <ContentTemplate>
+                <asp:ScriptManager ID="smClockRunner" runat="server">
+                </asp:ScriptManager>
+                <asp:Timer ID="timerClockRunner" runat="server" Interval="10000">
+                </asp:Timer>
+                <img src="../Images/Heart_Logo.png" style="width: 13px; height: 11px; margin-right:2px;" />
+                <asp:Label ID="dateTime" runat="server"></asp:Label>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </footer>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DocPortal.master.cs" Inherits="DocPortal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="DocHead1" runat="server">
+    <title>Health Pal</title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="headDocPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   <form runat="server" id="masterDocForm">
+    <header>
+        
+        <asp:HyperLink ID="linkDocHome" runat="server" CssClass="link" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+        <asp:HyperLink ID="linkManagePatients" runat="server" CssClass="link" NavigateUrl="~/DocPortal/ManagePatients.aspx">Manage Patients</asp:HyperLink>
+        <asp:HyperLink ID="linkRecords" runat="server" CssClass="link" NavigateUrl="~/DocPortal/PatientRecords.aspx">Patient Records</asp:HyperLink>
+        <asp:HyperLink ID="linkProfile" runat="server" CssClass="link" NavigateUrl="~/DocPortal/Profile.aspx">Profile</asp:HyperLink>
+        
+    </header>
+        <asp:ContentPlaceHolder id="webFormDocPlaceHolder" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    <footer>
+        <asp:UpdatePanel ID="upDocClockRunner" runat="server">
+            <ContentTemplate>
+                <asp:ScriptManager ID="smDocClockRunner" runat="server">
+                </asp:ScriptManager>
+                <asp:Timer ID="timerDocClockRunner" runat="server" Interval="10000">
+                </asp:Timer>
+                <img src="../Images/Heart_Logo.png" style="width: 13px; height: 11px; margin-right:2px;" />
+                <asp:Label ID="dateTimeDoc" runat="server"></asp:Label>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </footer>
+   </form>
+</body>
+
+</html>
